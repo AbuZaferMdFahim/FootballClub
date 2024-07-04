@@ -1,0 +1,149 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+        <div class="container">
+            <h1>Welcome to Praetorians United Football Club</h1>
+            <p>Your gateway to the latest fixtures, player info, and more!</p>
+        </div>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2>Latest Fixtures</h2>
+            <p>Stay updated with the latest matches and results.</p>
+            <!-- Example table for fixtures -->
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Opponent</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>July 5, 2024</td>
+                        <td>Team A</td>
+                        <td>Home</td>
+                    </tr>
+                    <tr>
+                        <td>July 12, 2024</td>
+                        <td>Team B</td>
+                        <td>Away</td>
+                    </tr>
+                    <tr>
+                        <td>July 19, 2024</td>
+                        <td>Team C</td>
+                        <td>Home</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="bg-secondary text-white py-5">
+        <div class="container">
+            <h2>Meet Our Players</h2>
+            <p>Get to know the stars of the team.</p>
+            <!-- Example player cards -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <img src="{% static 'img/default.png' %}"  class="card-img-top" alt="Player 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Player 1</h5>
+                            <p class="card-text">Position: Forward</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <img src="{% static 'img/default.png' %}"  class="card-img-top" alt="Player 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Player 2</h5>
+                            <p class="card-text">Position: Midfielder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white">
+                        <img src="{% static 'img/default.png' %}"  class="card-img-top"  alt="Player 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Player 3</h5>
+                            <p class="card-text">Position: Defender</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2>Club News</h2>
+            <p>Latest updates and announcements from the club.</p>
+            <!-- Example news articles -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/news.png' %}" class="card-img-top" alt="News 1">
+                        <div class="card-body">
+                            <h5 class="card-title">News Title 1</h5>
+                            <p class="card-text">Brief description of the news article.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/news.png' %}" class="card-img-top" alt="News 2">
+                        <div class="card-body">
+                            <h5 class="card-title">News Title 2</h5>
+                            <p class="card-text">Brief description of the news article.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'img/news.png' %}" class="card-img-top" alt="News 3">
+                        <div class="card-body">
+                            <h5 class="card-title">News Title 3</h5>
+                            <p class="card-text">Brief description of the news article.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-secondary text-white py-5">
+        <div class="container">
+            <h2>Gallery</h2>
+            <p>Moments captured from our matches and events.</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{% static 'img/dfield.webp' %}" class="img-fluid" alt="Gallery Image 1">
+                </div>
+                <div class="col-md-3">
+                    <img src="{% static 'img/dfield.webp' %}" class="img-fluid" alt="Gallery Image 2">
+                </div>
+                <div class="col-md-3">
+                    <img src="{% static 'img/dfield.webp' %}" class="img-fluid" alt="Gallery Image 3">
+                </div>
+                <div class="col-md-3">
+                    <img src="{% static 'img/dfield.webp' %}" class="img-fluid" alt="Gallery Image 4">
+                </div>
+            </div>
+        </div>
+    </section>
+        
+</html>
+{% endblock %}
