@@ -1,3 +1,39 @@
-body {
-    background-color: #1a78d5; /* Light Gray */
+/* Add this to your CSS file or inside a <style> tag in base.html */
+.position-section {
+    margin-bottom: 50px;
+}
+
+.position-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.player-card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.player-card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.player-card .card-body {
+    padding: 20px;
+}
+
+.player-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.player-card .card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.player-card .btn {
+    background-color: #004990;
+    border: none;
+    color: #fff;
 }

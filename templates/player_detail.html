@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">{{ player.name }} - Details</h1>
+    <div class="card mb-4">
+        <img src="{{ player.img.url }}" class="card-img-top" alt="{{ player.name }}" width="500px" height="500px" >
+        <div class="card-body">
+            <h5 class="card-title">{{ player.name }}</h5>
+            <p class="card-text"><strong>Position:</strong> {{ player.position }}</p>
+            <p class="card-text"><strong>Kit:</strong> {{ player.kit }}</p>
+            <p class="card-text"><strong>Age:</strong> {{ player.age }}</p>
+            <p class="card-text"><strong>Team:</strong> {{ player.team }}</p>
+            <p class="card-text"><strong>Date of Birth:</strong> {{ player.dob }}</p>
+            <a href="{% url 'player' %}" class="btn btn-primary">Back to Players</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

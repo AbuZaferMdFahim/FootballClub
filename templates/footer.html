@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer Example</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <footer class="bg-dark text-white py-4">
+    <footer  class="bg-dark text-white py-4 absolute-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -17,10 +19,10 @@
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Home</a></li>
-                        <li><a href="#" class="text-white">Fixtures</a></li>
-                        <li><a href="#" class="text-white">Shop</a></li>
-                        <li><a href="#" class="text-white">Player</a></li>
+                        <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
+                        <li><a href="{% url 'fixture' %}" class="text-white">Fixtures</a></li>
+                        <li><a href="{% url 'shop' %}" class="text-white">Shop</a></li>
+                        <li><a href="{% url 'player' %}" class="text-white">Player</a></li>
                         <li><a href="#" class="text-white">Contact</a></li>
                     </ul>
                 </div>

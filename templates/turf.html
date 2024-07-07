@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{Turf}}{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Turfs</h1>
+    <div class="row">
+        {% for turf in turfs %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ turf.img.url }}" class="card-img-top" alt="{{ jersey.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ turf.model }}</h5>
+                        <p class="card-text">{{ turf.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ turf.price_per_square_meter }}</p>
+                        <p class="card-text"><strong>Size:</strong> {{ turf.size }}</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

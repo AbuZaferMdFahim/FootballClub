@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Fixture{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Jerseys</h1>
+    <div class="row">
+        {% for jersey in jerseys %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ jersey.img.url }}" class="card-img-top" alt="{{ jersey.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ jersey.name }}</h5>
+                        <p class="card-text">{{ jersey.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ jersey.price }}</p>
+                        <p class="card-text"><strong>Color:</strong> {{ jersey.color }}</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

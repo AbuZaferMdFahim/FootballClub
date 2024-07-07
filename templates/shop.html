@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{%load static %}
+{% block title %}Shop{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <a href="{% url 'jersey' %}" >
+                <img src="{% static 'img/jersey.jpg' %}" class="card-img-top" alt="Jerseys">
+            </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Jerseys</h5>
+                </div>
+            
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <a href="{% url 'footballaccesories' %}" >
+                <img src="{% static 'img/accessories.jpg' %}" class="card-img-top" alt="Accessories">
+            </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Accessories</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <a href="{% url 'turf' %}" >
+                <img src="{% static 'img/boots.jpg' %}" class="card-img-top" alt="Boots">
+            </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Boots</h5>
+                </div>
+            </div>
+        </div>
+        <!-- Add more cards as needed -->
+    </div>
+</div>
+{% endblock %}

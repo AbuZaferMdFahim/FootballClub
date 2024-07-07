@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Fixture{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h2>Upcoming Fixtures</h2>
+    <p>Stay updated with the latest upcoming matches and results.</p>
+    <div class="row">
+        {% for fixture in fixtures %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ fixture.opponent }}</h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> {{ fixture.date|date:"M d, Y" }}<br>
+                        <strong>Location:</strong> {{ fixture.location }}<br>
+                        <strong>Type:</strong> {{ fixture.type }}<br>
+                        <strong>Match:</strong> {{ fixture.match }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

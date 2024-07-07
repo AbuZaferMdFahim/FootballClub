@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{Accessorys}}{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-4">Accessorys</h1>
+    <div class="row">
+        {% for accessorys in footballAccessorys %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ accessorys.img.url }}" class="card-img-top" alt="{{ jersey.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ accessorys.name }}</h5>
+                        <p class="card-text">{{ accessorys.description }}</p>
+                        <p class="card-text"><strong>Price:</strong> ${{ accessorys.price }}</p>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

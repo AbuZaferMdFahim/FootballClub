@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Players{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Players</h1>
+        <form action="" method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search players..." name="search" value="{{ search_query }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        {% for position, players in players_by_position.items %}
+            <div class="position-section">
+                <h2 class="position-title">{{ position }}</h2>
+                <div class="row">
+                    {% for player in players %}
+                        <div class="col-md-4">
+                            <div class="card mb-4 player-card">
+                                <img src="{{ player.img.url }}" class="card-img-top" alt="{{ player.name }}">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ player.name }}</h5>
+                                    <p class="card-text"><strong>Position:</strong> {{ player.position }}</p>
+                                    <a href="{% url 'player_detail' player.pk %}" class="btn btn-primary">Player Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
