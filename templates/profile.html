@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-info">
+            <div class="profile-header-top">
+                <div class="profile-user-details">
+                    <h1>{{ profile.user.username }}</h1>
+                    <h2>Bio</h2>
+                    <p>{{ profile.bio|default:"No bio available." }}</p>
+                </div>
+                <div class="profile-avatar-container">
+                    {% if profile.avatar %}
+                        <img src="{{ profile.avatar.url }}" alt="{{ profile.user.username }}'s avatar" class="profile-avatar">
+                    {% else %}
+                        <img src="{% static 'img/default_avatar.png' %}" alt="Default avatar" class="profile-avatar">
+                    {% endif %}
+                    <div class="avatar-upload">
+                        <form method="post" enctype="multipart/form-data" action="{% url 'change_photo' %}">
+                            {% csrf_token %}
+                            <label for="avatar-upload-input" class="avatar-upload-label">Change Photo</label>
+                            <input id="avatar-upload-input" type="file" accept="image/*" name="avatar" style="display: none;">
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-details">
+                <h2>Contact Information</h2>
+                <p><strong>Email:</strong> {{ profile.user.email }}</p>
+                <p><strong>Mobile:</strong> {{ profile.mobile|default:"No mobile number available." }}</p>
+            </div>
+
+            <div class="profile-actions">
+                <h2>Actions</h2>
+                <ul>
+                    <li><a href="{% url 'edit_profile' %}">Update Profile</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

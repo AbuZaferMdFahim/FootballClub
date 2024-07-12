@@ -5,6 +5,7 @@ from datetime import time
 
 
 class Fixture(models.Model):
+    myTeam = models.CharField(max_length=100,default = None,null=True)
     opponent = models.CharField(max_length=100,default = None)
     date = models.DateTimeField(default = None)
     location = models.CharField(max_length=200,default = None)
@@ -19,15 +20,16 @@ class Player(models.Model):
     GOALKEEPER = 'goalkeeper'
     DEFENDER = 'defender'
     MIDFIELDER = 'midfielder'
-    STRIKER = 'striker'
+    FORWARD = 'forward'
 
     POSITION_CHOICES = [
         (GOALKEEPER, 'Goalkeeper'),
         (DEFENDER, 'Defender'),
         (MIDFIELDER, 'Midfielder'),
-        (STRIKER, 'Striker'),
+        (FORWARD, 'Forward'),
     ]
     name = models.CharField(max_length=100)
+    bio = models.TextField(null=True)
     kit = models.IntegerField(unique=True)
     position = models.CharField(
         max_length=50,
@@ -38,9 +40,12 @@ class Player(models.Model):
     team = models.CharField(max_length=100)
     dob = models.DateField()
     img = models.ImageField(upload_to='player_images/')
-
+    nationality = models.CharField(max_length=100, null=True)
+    nationality_image = models.ImageField(upload_to='player_nationality_images/', null=True)
+    
     def __str__(self):
         return self.name
+
     
 
 class News(models.Model):

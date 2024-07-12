@@ -5,14 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Praetorians United Football Club{% endblock %}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/club_logo.ico' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <header class="bg-primary text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="{% url 'home' %}">
+<body class="hea">
+    <header >
+        <a class="logo" href="{% url 'home' %}">
+                <img src="{% static 'img/club_logo.jpeg' %}" alt="Logo" style="width: 60px; height: 60px; margin-right: 10px;">
+                Praetorians United
+        </a>
+        <nav class="navbar" >
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'fixture' %}">Fixtures</a></li>
+                <li><a href="{% url 'shop' %}">Shop + </a>
+                    <ul>
+                        <li><a href="{% url 'jersey' %}">Jersey</a></li>
+                        <li><a href="{% url 'footballaccesories' %}">Accessories</a></li>
+                        <li><a href="{% url 'turf' %}">Turf</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="{% url 'player' %}">Players</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li>
+                <a class="logo" href="">
+                    {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 5px;">
+                    {% else %}
+                    <span class="fa fa-user-circle-o fa-lg"></span>
+                    {% endif %}
+                    {{ user.username }}
+                </a>
+                <ul>
+                    <li>
+                        <a href="{% url 'profile' %}">Profile</a>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="dropdown-item white-text">Logout</button>
+                    </form>
+                    
+                    </li>
+                    <li></li>
+                </ul>
+            </li>
+                {%else%}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    
+            <!-- <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'img/club_logo.jpeg' %}" alt="Logo" style="width: 60px; height: 60px; margin-right: 10px;">
                 Praetorians United
             </a>
@@ -40,8 +85,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'player' %}">Player</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,10 +99,14 @@
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li> -->
-                    {% if user.is_authenticated %}
+                    <!-- {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ profile.avatar.url }}" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
+                            {% if user.profile.avatar %}
+                            <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 5px;">
+                            {% else %}
+                            <span class="fa fa-user-circle-o fa-lg"></span>
+                            {% endif %}
                             {{ user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
@@ -77,9 +126,8 @@
                     {% endif %}
                 </ul>
             </div>
-        </nav>
+        </nav> --> 
     </header>
-
 
 </body>
 </html>

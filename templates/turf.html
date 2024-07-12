@@ -3,24 +3,59 @@
 {% block title %}{{Turf}}{% endblock %}
 {% block content %}
 
-<div class="container mt-5">
-    <h1 class="mb-4">Turfs</h1>
-    <div class="row">
-        {% for turf in turfs %}
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="{{ turf.img.url }}" class="card-img-top" alt="{{ jersey.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ turf.model }}</h5>
-                        <p class="card-text">{{ turf.description }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ turf.price_per_square_meter }}</p>
-                        <p class="card-text"><strong>Size:</strong> {{ turf.size }}</p>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
+<div class="turf-container mt-5">
+    <h1 class="turf-page">Turfs</h1>
+    <div class="turf-row">
+        {% for turf in page_obj %}
+            <div class="turf-col-md-4">
+                <div class="turf-card mb-4">
+                    <img src="{{ turf.img.url }}" class="turf-card-img-top" alt="{{ jersey.name }}">
+                    <div class="turf-card-body">
+                        <h5 class="turf-card-title">{{ turf.model }}</h5>
+                        <p class="turf-card-text">{{ turf.color }}</p>
+                        <p class="turf-card-text"><strong>Price:</strong> ${{ turf.price_per_square_meter }}</p>
+                        <p class="turf-card-text"><strong>Size:</strong> {{ turf.size }}</p>
+                        <a href="#" class="turf-btn btn-primary">Buy Now</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+
+    <!-- Pagination Controls -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&laquo;</span>
+            </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&raquo;</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
 </div>
 
 {% endblock %}

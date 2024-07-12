@@ -2,25 +2,78 @@
 {% load static %}
 {% block title %}Fixture{% endblock %}
 {% block content %}
-<div class="container my-5">
-    <h2>Upcoming Fixtures</h2>
-    <p>Stay updated with the latest upcoming matches and results.</p>
-    <div class="row">
-        {% for fixture in fixtures %}
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ fixture.opponent }}</h5>
-                    <p class="card-text">
-                        <strong>Date:</strong> {{ fixture.date|date:"M d, Y" }}<br>
-                        <strong>Location:</strong> {{ fixture.location }}<br>
-                        <strong>Type:</strong> {{ fixture.type }}<br>
-                        <strong>Match:</strong> {{ fixture.match }}
-                    </p>
-                </div>
+<div class="fixture-page-container">
+    <p class="p-fixture">All Fixture</p>
+    {% for fixture in page_obj %}
+    <div class="fixture-page">
+        <div class="fixture-page-info">
+            <img src="{% static 'img/friendly.png' %}" alt="Friendly">
+            <div>
+                <p class="fixture-page-date">{{ fixture.date|date:"D d M" }}</p>
             </div>
+            {% if fixture.type == "Away" %}
+            <div>
+                <p><strong>{{ fixture.opponent }}</strong></p>
+            </div>
+            <div class="fixture-page-middle">
+                <p>{{ fixture.date|time:"H:i" }} +06</p>
+                <p>{{ fixture.location }}</p>
+            </div>
+            <div>
+                <p><strong>{{ fixture.myTeam }}</strong></p>
+            </div>
+            {% else %}
+            <div>
+                <p><strong>{{ fixture.myTeam }}</strong></p>
+            </div>
+            <div class="fixture-page-middle">
+                <p>{{ fixture.date|time:"H:i" }} +06</p>
+                <p>{{ fixture.location }}</p>
+            </div>
+            <div>
+                <p><strong>{{ fixture.opponent }}</strong></p>
+            </div>
+            {% endif %}
         </div>
-        {% endfor %}
+        <div class="fixture-page-actions">
+            <button>BUY TICKETS</button>
+            <button>BUY HOSPITALITY</button>
+        </div>
     </div>
+    {% endfor %}
+
+    <!-- Pagination Controls -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&laquo;</span>
+            </li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+            </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&raquo;</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
 </div>
+
 {% endblock %}

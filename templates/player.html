@@ -1,35 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Players{% endblock %}
 {% block content %}
-    <div class="container mt-5">
-        <h1 class="mb-4">Players</h1>
-        <form action="" method="GET" class="mb-4">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search players..." name="search" value="{{ search_query }}">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </div>
+<div class="player-all-container mt-5">
+    <h1 class="player-all-mb-4">Players</h1>
+    <form action="" method="GET" class="mb-4">
+        <div class="input-group">
+            <input type="text" class="player-all-form-control" placeholder="Search players..." name="search" value="{{ request.GET.search }}">
+            <div class="player-all-input-group-append">
+                <button class="player-all-btn btn-outline-primary" type="submit">Search</button>
             </div>
-        </form>
-        {% for position, players in players_by_position.items %}
-            <div class="position-section">
-                <h2 class="position-title">{{ position }}</h2>
-                <div class="row">
-                    {% for player in players %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 player-card">
-                                <img src="{{ player.img.url }}" class="card-img-top" alt="{{ player.name }}">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ player.name }}</h5>
-                                    <p class="card-text"><strong>Position:</strong> {{ player.position }}</p>
-                                    <a href="{% url 'player_detail' player.pk %}" class="btn btn-primary">Player Details</a>
+        </div>
+    </form>
+    {% for position, players in players_by_position.items %}
+        <div class="player-all-position-section">
+            <h2 class="player-all-position-title">{{ position }}</h2>
+            <div class="player-all-row">
+                {% for player in players %}
+                    <div class="player-all-col-md-4">
+                        <div class="player-all-card mb-4 player-card">
+                            <a href="{% url 'player_detail' player.pk %}">
+                            <img src="{{ player.img.url }}" class="player-all-card-img-top" alt="{{ player.name }}">
+                        </a>
+                            <div class="player-all-card-body text-center">
+                                <div class="player-all-card-header">
+                                    <img src="{{ player.nationality_image.url }}" alt="{{ player.nationality }}" class="player-all-flag">
+                                    <span class="player-all-kit">{{ player.kit }}</span>
                                 </div>
+                                <h5 class="player-all-card-title">{{ player.name }}</h5>
+                                <p class="player-all-card-text"><strong>Position:</strong> {{ position }}</p>
+                                <!-- <a href="{% url 'player_detail' player.pk %}" class="player-all-btn btn-primary">Player Details</a> -->
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
+

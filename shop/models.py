@@ -5,7 +5,7 @@ from django.db import models
 
 class Jersey(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    kit = models.CharField(max_length=100,null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     color = models.CharField(max_length=50)
     img = models.ImageField(upload_to='jersey_images/')
@@ -15,7 +15,7 @@ class Jersey(models.Model):
     
 class FootballAccessory(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    color = models.CharField(max_length=100,null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     img = models.ImageField(upload_to='accessory_images/')
 
@@ -24,7 +24,7 @@ class FootballAccessory(models.Model):
     
 class Turf(models.Model):
     model = models.CharField(max_length=100)
-    description = models.TextField()
+    color = models.CharField(max_length=100,null=True)
     price_per_square_meter = models.DecimalField(max_digits=10, decimal_places=2)
     size = models.CharField(max_length=50)
     img = models.ImageField(upload_to='turf_images/')

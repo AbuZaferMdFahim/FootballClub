@@ -1,8 +1,8 @@
 {% include 'header.html' %}
-
+{% load static%}
 {% block content %}
-
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 {% endblock %}
-
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
 {% include 'footer.html' %}

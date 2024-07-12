@@ -2,39 +2,53 @@
 {% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-        <div class="container">
-            <h1>Welcome to Praetorians United Football Club</h1>
-            <p>Your gateway to the latest fixtures, player info, and more!</p>
-        </div>
 
-        <section class="bg-light py-5">
-            <div class="container">
-                <h2>Latest Fixtures</h2>
-                <p>Stay updated with the latest matches and results.</p>
-                <div class="row">
-                    {% for fix in fixtures %}
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ fix.date }}</h5>
-                                <p class="card-text"><strong>Opponent:</strong> {{ fix.opponent }}</p>
-                                <p class="card-text"><strong>Location:</strong> {{ fix.location }}</p>
-                                <p class="card-text"><strong>Match:</strong> {{ fix.match }}</p>
-                                <p class="card-text"><strong>Home/Away:</strong> {{ fix.type }}</p>
-                            </div>
-                        </div>
+
+
+<!--<section class="fixtures-section">
+    <h1>Latest Fixtures</h1>
+    <h6>Stay Updated With The Latest Matches And Results.</h6>
+    <div class="fixtures-container">
+        <div class="fixture-card">
+            
+            <p><strong>July 11, 2024, 6 A.M.</strong></p>
+            <p><strong>Opponent:</strong> Eco United</p>
+            <p><strong>Location:</strong> Mirpur, Dhaka</p>
+            <p><strong>Match:</strong> Friendly</p>
+            <p><strong>Home/Away:</strong> Home</p>
+        </div>
+    </div>
+    <a href="#" class="btn">See More Fixtures</a>
+</section>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <h2>Latest Fixtures</h2>
+        <p>Stay updated with the latest matches and results.</p>
+        <div class="row">
+            {% for fix in fixtures %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ fix.date }}</h5>
+                        <p class="card-text"><strong>Opponent:</strong> {{ fix.opponent }}</p>
+                        <p class="card-text"><strong>Location:</strong> {{ fix.location }}</p>
+                        <p class="card-text"><strong>Match:</strong> {{ fix.match }}</p>
+                        <p class="card-text"><strong>Home/Away:</strong> {{ fix.type }}</p>
                     </div>
-                    {% endfor %}
                 </div>
-                <a href="{% url 'fixture' %}" class="btn btn-primary">See More Fixtures</a>
             </div>
-        </section>
+            {% endfor %}
+        </div>
+        <a href="{% url 'fixture' %}" class="btn btn-primary">See More Fixtures</a>
+    </div>
+</section> 
 
     <section class="bg-secondary text-white py-5">
         <div class="container">
             <h2>Meet Our Players</h2>
             <p>Get to know the stars of the team.</p>
-            <!-- Example player cards -->
+            Example player cards 
             <div class="row">
                 {% for player in players %}
               <div class="col-md-4">
@@ -50,9 +64,85 @@
             </div>
             <a href="{% url 'player' %}" class="btn btn-primary">See More Players</a>
         </div>
-    </section>
+    </section> -->
+    <section class="intro-section">
 
-    <section class="bg-light py-5">
+        <div class="intro-container">
+            <h1>Your gateway to the latest fixtures, player info, and more!</h1>
+        </div>
+
+    </section>
+    <section class="fixture-section">
+        <div class="fixture-container">
+            <h2>Latest Fixtures</h2>
+            <p>Stay updated with the latest matches and results.</p>
+            <div class="fixture-row">
+                {% for fix in fixtures %}
+                <div class="fixture-col-md-4 mb-4">
+                    <div class="fixture-card">
+                        <div class="fixture-card-body">
+                            <h5 class="fixture-card-title">{{ fix.date }}</h5>
+                            <p class="fixture-card-text"><strong>Opponent:</strong> {{ fix.opponent }}</p>
+                            <p class="fixture-card-text"><strong>Location:</strong> {{ fix.location }}</p>
+                            <p class="fixture-card-text"><strong>Match:</strong> {{ fix.match }}</p>
+                            <p class="fixture-card-text"><strong>Home/Away:</strong> {{ fix.type }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="{% url 'fixture' %}" class="fixture-btn ">See More Fixtures</a>
+        </div>
+    </section>
+    
+    <section class="player-section">
+        <div class="player-container">
+            <h2>Meet Our Players</h2>
+            <h4>Get to know the stars of the team.</h4>
+            <!-- Example player cards -->
+            <div class="player-row">
+                {% for player in players %}
+                <div class="player-col-md-4">
+                    <div class="player-card">
+                        <img src="{{ player.img.url }}" class="player-card-img-top" alt="Player 1">
+                        <div class="player-card-body">
+                            <h5 class="player-card-title">{{ player.name }}</h5>
+                            <p class="player-card-text">Position: {{ player.position }}</p>
+                            <a href="{% url 'player_detail' player.pk %}" class="player-list-btn btn-primary">See Full Info</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="{% url 'player' %}" class="player-btn btn-primary">See More Players</a>
+        </div>
+    </section>
+    
+        <section class="news-section">
+            <div class="news-container">
+                <h2>Club News</h2>
+                <p>Latest updates and announcements from the club.</p>
+                <div class="news-row">
+                    {% for item in news %}
+                    <div class="news-col-md-4">
+                        <div class="news-card mb-4">
+                            <a href="{% url 'news_detail' item.pk %}">
+                            <img src="{{ item.image.url }}" class="news-card-img-top" alt="{{ item.title }}">
+                            </a>
+                            <div class="news-card-body">
+                                <h5 class="news-card-title">{{ item.title }}</h5>
+                                <p class="news-card-text">{{ item.description|truncatewords:20 }}</p>
+                                <a href="{% url 'news_detail' item.pk %}" class="news-btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'news' %}" class="news-btn btn-primary">See More News</a>
+            </div>
+        </section>
+
+    <!-- <section class="bg-light py-5">
         <div class="container">
             <h2>Club News</h2>
             <p>Latest updates and announcements from the club.</p>
@@ -96,7 +186,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
         
 
 {% endblock %}

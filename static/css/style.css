@@ -1,39 +1,1755 @@
-/* Add this to your CSS file or inside a <style> tag in base.html */
-.position-section {
-    margin-bottom: 50px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+body{
+    min-height: 100vh;
+
+    background-size:cover ;
+    background-position: center;
+}
+/* header start here  */
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1c1564;
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    height: 70px;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
 }
 
-.position-title {
-    font-size: 2rem;
+header .navbar ul{
+    list-style: none;
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header a{
+    text-decoration: none;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #FFFFFF;
+    display: block;
+    text-decoration: none;
+}
+.white-text {
+    color: #FFFFFF;
+}
+header .navbar ul li a:hover{
+    background: green;
+    color: #fff;
+}
+header .navbar ul li button:hover{
+    background: green;
+    color: #fff;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 200px;
+    background: #1c1564;
+    display: none;
+    z-index: 1000;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: block;
+}
+
+
+@media(max-width: 991px){
+    header{
+        padding: 20px;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0; right: 0;
+        background: #fff;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #E0FFFF; /* Matching primary color */
+    color: #fff;
+    margin-top: 20px;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.player-card {
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.footer-col-md-4 {
+    flex: 1 1 300px;
+    max-width: 300px;
+    margin: 10px 0;
 }
 
-.player-card img {
-    height: 250px;
-    object-fit: cover;
+.footer-col-md-4 h5 {
+    font-size: 1.25em;
+    margin-bottom: 15px;
+    color: blue;
 }
 
-.player-card .card-body {
-    padding: 20px;
+.footer-col-md-4 p,
+.footer-col-md-4 address {
+    font-size: 0.875em;
+    line-height: 1.6;
+    color: black;
 }
 
-.player-card .card-title {
-    font-size: 1.5rem;
+.footer-list-unstyled {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list-unstyled li {
     margin-bottom: 10px;
 }
 
-.player-card .card-text {
-    font-size: 1rem;
-    margin-bottom: 15px;
+.footer-text-white {
+    color: black;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-.player-card .btn {
-    background-color: #004990;
+.footer-text-white:hover {
+    color: #dcdcdc;
+}
+
+.footer-row.mt-3 {
+    border-top: 1px solid #dcdcdc;
+    padding-top: 20px;
+    color: black;
+}
+
+.footer-col.text-center {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.footer-col.text-center p {
+    margin: 0;
+    font-size: 0.875em;
+    color: Black;
+}
+
+
+
+/* Fixtures Section */
+
+
+.intro-section {
+    margin-top: 80px;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.intro-section h1, .intro-section p {
+    color: rgb(5, 4, 4); /* Ensure text is dark */
+}
+
+.intro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.intro-container h1, .intro-container p {
+    color: rgb(5, 4, 4);
+}
+
+
+.fixture-section {
+    padding: 40px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+}
+
+.fixture-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.fixture-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.fixture-col-md-4 {
+    flex: 0 0 31%; /* Approximately one-third width with some margin */
+    max-width: 31%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.fixture-card {
+    background-color: #1c1564;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+}
+
+.fixture-card-body {
+    padding: 20px;
+}
+
+.fixture-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.fixture-card-text {
+    margin: 5px 0;
+    color: white;
+}
+
+.fixture-btn {
+    
+    background-color: #1c1564;
+    color: #ffffff;
+    padding: 10px 20px;
     border: none;
+    border-radius: 4px;
+    text-decoration: none !important;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fixture-btn:hover {
+    background-color: #0056b3; 
+    color: #ffffff;
+}
+
+
+/* Player Section Styles */
+.player-section {
+    padding: 40px 0; /* Adjust padding as needed */
+    /* Example background color */
+}
+
+.player-container {
+    max-width: 960px; /* Adjust container width as needed */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.player-container h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Example font size */
+    margin-bottom: 20px;
+    color: black;
+}
+
+.player-container h4 {
+    color: black;
+    text-align: center;
+    font-size: 1.5rem; /* Example font size */
+    margin-bottom: 40px;
+}
+
+.player-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.player-col-md-4 {
+    flex: 0 0 33.33%; /* Adjust column width for responsiveness */
+    max-width: 33.33%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    display: flex; /* Ensure each column is a flex container */
+}
+
+.player-card {
+    background-color: #e0ffff4c;; /* Example card background color */
+    /* border: 1px solid #dddddd;  Example card border */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example box shadow */
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Ensure each card is a flex container */
+    flex-direction: column; /* Arrange content vertically */
+}
+
+.player-card:hover {
+    transform: translateY(-5px); /* Example hover effect */
+}
+
+.player-card-img-top {
+    width: 100%;
+    border-radius: 6px; /* Example image border radius */
+    flex: 1; /* Let the image grow to fill available space */
+}
+
+.player-card-body {
+    text-align: center;
+    flex: 1; /* Let the body content grow to fill available space */
+}
+
+.player-card-title {
+    font-size: 1.5rem; /* Example title font size */
+    margin-top: 10px;
+    color: black;
+}
+
+.player-card-text {
+    font-size: 1.2rem; /* Example text font size */
+    color: black; /* Example text color */
+}
+.player-list-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Example button background color */
+    color: #ffffff; /* Example button text color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+.player-btn {
+    display: block;
+    width: 200px; /* Example button width */
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff; /* Example button background color */
+    color: #ffffff; /* Example button text color */
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.player-btn:hover {
+    background-color: #0056b3; /* Example button hover background color */
+}
+
+
+/* News Section CSS */
+
+.news-section {
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Light background to differentiate section */
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-container h2 {
+    font-size: 28px; /* Heading font size */
+    margin-bottom: 10px; /* Spacing below heading */
+    text-align: center; /* Center the heading */
+}
+
+.news-container p {
+    font-size: 16px; /* Paragraph font size */
+    margin-bottom: 30px; /* Spacing below paragraph */
+    text-align: center; /* Center the paragraph */
+}
+
+.news-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between cards */
+    justify-content: center; /* Center align the cards */
+}
+
+.news-col-md-4 {
+    flex: 1 1 30%; /* Flex basis to 30% */
+    max-width: 30%; /* Max width to 30% */
+    box-sizing: border-box;
+    display: flex;
+}
+
+.news-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make the card take full height */
+}
+
+.news-card:hover {
+    transform: scale(1.05);
+}
+
+.news-card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.news-card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.news-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.news-card-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.news-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.news-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Player all page */
+.player-all-container {
+    width: 100%;
+    padding: 20px;
+}
+
+.player-all-position-title {
+    font-size: 20px; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.player-all-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Reduced gap */
+}
+
+.player-all-col-md-4 {
+    flex: 1 1 20%; /* Smaller flex basis */
+    max-width: 20%; /* Ensures columns don't grow larger */
+}
+
+.player-all-card {
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Smaller border radius */
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: transform 0.3s;
+    padding: 10px; /* Reduced padding */
+}
+
+.player-all-card:hover {
+    transform: scale(1.05);
+}
+
+.player-all-card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.player-all-card-body {
+    padding: 8px; /* Reduced padding */
+    position: relative;
+}
+
+.player-all-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.player-all-flag {
+    width: 20px; /* Smaller flag */
+    height: auto;
+}
+
+.player-all-kit {
+    font-size: 18px; /* Smaller font size */
+    font-weight: bold;
+}
+
+.player-all-card-title {
+    font-size: 16px; /* Smaller font size */
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.player-all-card-text {
+    font-size: 12px; /* Smaller font size */
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.player-all-btn {
+    padding: 5px 10px; /* Smaller button */
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.player-all-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* player_details.css */
+.player-detail-header {
+    position: relative;
+    margin-top: 75px;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.player-detail-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+.player-detail-header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.player-detail-header h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.player-detail-tabs {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.player-detail-tabs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.player-detail-tabs ul li {
+    margin: 0 15px;
+}
+
+.player-detail-tabs ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.player-detail-tabs ul li a.active,
+.player-detail-tabs ul li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.player-detail-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.tab-content {
+    display: none;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.player-detail-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.player-detail-bio,
+.player-detail-info {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.player-detail-bio h2,
+.player-detail-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.player-detail-bio p,
+.player-detail-info p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+.show-less-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.show-less-btn:hover {
+    background-color: #0056b3;
+}
+
+.player-detail-info img {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.full-bio {
+    display: none;
+}
+
+
+
+
+
+/* News Section */
+.news-section {
+    padding: 40px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.news-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.news-col-md-4 {
+    flex: 0 0 31%; /* Approximately one-third width with some margin */
+    max-width: 31%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.news-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+}
+
+.news-card-img-top {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #eee;
+}
+
+.news-card-body {
+    padding: 20px;
+}
+
+.news-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.news-card-text {
+    margin: 5px 0;
+    color: #666666;
+}
+
+.news-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none!important;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.news-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* fixture.html */
+.fixture-page-container {
+    width: 80%;
+    margin: 20px auto;
+    margin-top: 60px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.p-fixture{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.fixture-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+.fixture-page:last-child {
+    border-bottom: none;
+}
+.fixture-page-info {
+    display: flex;
+    align-items: center;
+}
+.fixture-page-info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.fixture-page-info div {
+    margin-right: 20px;
+}
+.fixture-page-info .date {
+    color: #3498db;
+    font-weight: bold;
+}
+.fixture-page-actions {
+    display: flex;
+    gap: 10px;
+}
+.fixture-page-actions button {
+    padding: 10px 20px;
+    background-color: yellow;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.fixture-page-middle {
+    flex: 1;
+    text-align: center;
+}
+
+/* shop page */
+.shop-container {
+    margin-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.shop-row {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px 0;
+}
+
+.shop-col-md-4 {
+    margin-top: 100px;
+    flex: 0 0 calc(33.3333% - 30px);
+    max-width: calc(33.3333% - 30px);
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.shop-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.shop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shop-card-img-top {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.shop-card-body {
+    padding: 20px;
+}
+
+.shop-card-title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.shop-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.shop-card a:hover .shop-card-title {
+    color: #007bff;
+}
+
+
+/* Jersey Page Styles */
+.jersey-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.jersey-page {
+    padding-top: 50px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.jersey-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card styles */
+.jersey-col-md-4 {
+    flex: 0 0 300px;
+    margin: 10px;
+    display: flex;
+}
+
+.jersey-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
+}
+
+.jersey-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.jersey-card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.jersey-card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.jersey-card-title {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+}
+
+.jersey-card-text {
+    margin-bottom: 5px;
+}
+
+.jersey-btn {
+    background-color: #1c1564;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.jersey-btn:hover {
+    background-color: #333;
+}
+
+
+
+/* Turf & accessories Page Styles */
+.turf-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.turf-page {
+    text-align: center;
+    color: #1c1564;
+    margin-bottom: 30px;
+}
+
+.turf-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.turf-col-md-4 {
+    flex: 1 1 30%;
+    max-width: 30%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.turf-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.turf-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.turf-card-img-top {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover;
+}
+
+.turf-card-body {
+    padding: 15px;
+    flex: 1; /* Ensure the body takes up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.turf-card-title {
+    font-size: 1.25em;
+    color: #1c1564;
+    margin-bottom: 10px;
+}
+
+.turf-card-text {
+    font-size: 0.875em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.turf-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1c1564;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.turf-btn:hover {
+    background-color: #140c3a;
+}
+
+/* Profiel page */
+
+.profile-container {
+    margin-top: 100px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the profile header */
+.profile-header {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling for the profile info section */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+/* Styling for the top section containing user details and avatar */
+.profile-header-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Styling for user details */
+.profile-user-details {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.profile-user-details h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.profile-user-details h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.profile-user-details p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Styling for avatar container */
+.profile-avatar-container {
+    width: 30%;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #fff; /* Optional: Add a border for better contrast */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* edit_profile */
+/* Container for the entire edit profile section */
+.profile-update-container {
+    margin-top: 100px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.profile-update-header {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* User info section */
+.profile-update-info {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+/* Top section containing user details and avatar */
+.profile-update-header-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* User details */
+.profile-update-user-details {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.profile-update-user-details h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/* Avatar container */
+.profile-update-avatar-container {
+    width: 30%;
+    text-align: center;
+}
+
+.profile-update-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #fff; /* Optional: Add a border for better contrast */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+#update-profile-form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+#update-profile-form label {
+    font-weight: bold;
+}
+
+#update-profile-form textarea,
+#update-profile-form input[type="email"],
+#update-profile-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#update-profile-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#update-profile-form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+/* Styling for avatar upload label */
+.avatar-upload-label {
+    display: block;
+    color: #007bff; /* Change color to match your design */
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* Styling for profile details section */
+.profile-details {
+    margin-bottom: 20px;
+}
+
+.profile-details h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-details p {
+    margin-bottom: 12px;
+}
+
+/* Styling for profile actions section */
+.profile-actions {
+    margin-bottom: 20px;
+}
+
+.profile-actions h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-actions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-actions li {
+    margin-bottom: 8px;
+}
+
+.profile-actions a {
+    color: #007bff; /* Change color to match your design */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.profile-actions a:hover {
+    color: #0056b3; /* Darken color on hover */
+}
+
+
+
+/* password change */
+.password-change-container {
+    margin-top: 100px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.password-change-container form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.password-change-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.password-change-container input[type="password"] {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.password-change-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.password-change-container button:hover {
+    background-color: #0056b3;
+}
+
+.password-change-container button:active {
+    background-color: #0056b3;
+    transform: translateY(1px);
+}
+
+
+
+/* news all page */
+
+/* All News Section CSS */
+
+.news-all-container {
+    margin-top: 50px;
+    padding: 40px 20px;
+    background-color: #f4f4f4; /* Light background to differentiate section */
+}
+
+.news-all-container h1 {
+    font-size: 28px; /* Heading font size */
+    margin-bottom: 20px; /* Spacing below heading */
+    text-align: center; /* Center the heading */
+}
+
+.news-all-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between cards */
+    justify-content: center; /* Center align the cards */
+}
+
+.news-all-col-md-4 {
+    flex: 1 1 30%; /* Flex basis to 30% */
+    max-width: 30%; /* Max width to 30% */
+    box-sizing: border-box;
+    display: flex;
+}
+
+.news-all-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make the card take full height */
+}
+
+.news-all-card:hover {
+    transform: scale(1.05);
+}
+
+.news-all-card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.news-all-card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.news-all-card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.news-all-card-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.news-all-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.news-all-btn:hover {
+    background-color: #0056b3;
+}
+
+/* News Detail Page CSS */
+
+.news-detail-container {
+    padding: 40px 20px;
+    background-color: #fff; /* White background for the detail page */
+    max-width: 800px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the content */
+}
+
+.news-detail-container h1 {
+    font-size: 32px; /* Heading font size */
+    margin-bottom: 20px; /* Spacing below heading */
+    text-align: center; /* Center the heading */
+}
+
+.news-detail-img-fluid {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Spacing below image */
+}
+
+.news-detail-container p {
+    font-size: 16px; /* Paragraph font size */
+    line-height: 1.6; /* Line height for better readability */
+    margin-bottom: 30px; /* Spacing below paragraph */
+    text-align: justify; /* Justify text for a clean look */
+}
+
+.news-detail-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.news-detail-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* contact page */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-container h1 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #0056b3;
+}
+
+/* contact-success page */
+.contact-success-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+.contact-success-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-success-container p {
+    font-size: 18px;
+    margin-top: 0;
+    color: #155724;
+}
+
+
+/* signup */
+
+.signup-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.signup-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.signup-col-md-8 {
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+    padding: 15px;
+}
+
+.signup-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: white;
+}
+
+.signup-card-header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #1c1564;
+    color: white;
+}
+
+.signup-card-title {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.signup-card-body {
+    padding: 15px;
+}
+
+.signup-form-group {
+    margin-bottom: 1rem;
+}
+
+.signup-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.signup-form-control {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+
+.signup-btn {
+    background-color: #1c1564;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background-color: #333;
+}
+
+/* login  */
+
+/* Base styles */
+.login-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.login-col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 15px;
+}
+
+.login-form-group {
+    margin-bottom: 1rem;
+}
+
+.login-form-control {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    background-color: #1c1564;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #333;
+}
+
+.login-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #1c1564;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.page-link:hover {
+    background-color: #1c1564;
+    color: #fff;
+}
+
+.page-item.active .page-link {
+    background-color: #1c1564;
+    color: #fff;
+    border-color: #1c1564;
+}
+
+.page-item.disabled .page-link {
+    color: #999;
+    pointer-events: none;
+    background-color: #f7f7f7;
+    border-color: #ddd;
 }

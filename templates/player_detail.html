@@ -2,19 +2,47 @@
 {% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-<div class="container mt-5">
-    <h1 class="mb-4">{{ player.name }} - Details</h1>
-    <div class="card mb-4">
-        <img src="{{ player.img.url }}" class="card-img-top" alt="{{ player.name }}" width="500px" height="500px" >
-        <div class="card-body">
-            <h5 class="card-title">{{ player.name }}</h5>
-            <p class="card-text"><strong>Position:</strong> {{ player.position }}</p>
-            <p class="card-text"><strong>Kit:</strong> {{ player.kit }}</p>
-            <p class="card-text"><strong>Age:</strong> {{ player.age }}</p>
-            <p class="card-text"><strong>Team:</strong> {{ player.team }}</p>
-            <p class="card-text"><strong>Date of Birth:</strong> {{ player.dob }}</p>
-            <a href="{% url 'player' %}" class="btn btn-primary">Back to Players</a>
-        </div>
+<div class="player-detail-header" style="background-image: url('{{ player.img.url }}');">
+    <div class="player-detail-overlay">
+        <h1>{{ player.name }}</h1>
+        <h2>#{{ player.kit }}</h2>
     </div>
 </div>
+<div class="player-detail-tabs">
+    <ul>
+        <li><a href="#profile" class="active">Profile</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#news">News & Video</a></li>
+    </ul>
+</div>
+<div class="player-detail-content">
+    <div id="profile" class="tab-content active">
+        <div class="player-detail-main">
+            <div class="player-detail-bio">
+                <h2>Bio</h2>
+                <p id="bio-content" class="short-bio">{{ player.bio|truncatewords:30 }}</p>
+                <p id="bio-full-content" class="full-bio">{{ player.bio }}</p>
+                <a href="#" id="read-more-btn" class="read-more-btn" onclick="toggleBio(event)">Read More</a>
+                <a href="#" id="show-less-btn" class="show-less-btn" onclick="toggleBio(event)" style="display: none;">Show Less</a>
+            </div>
+            <div class="player-detail-info">
+                <h2>Info</h2>
+                <p><strong>Date of birth:</strong> {{ player.dob }}</p>
+                <p><strong>Location:</strong> {{ player.location }}</p>
+                <p><strong>Nationality:</strong> <img src="{{ player.nationality_image.url }}" alt="{{ player.nationality }}"></p>
+                <p><strong>Position:</strong> {{ player.position }}</p>
+                <p><strong>Joined:</strong> {{ player.joined_date }}</p>
+            </div>
+        </div>
+    </div>
+    <div id="social" class="tab-content">
+        <h2>Social Media</h2>
+        <!-- Social media content here -->
+    </div>
+    <div id="news" class="tab-content">
+        <h2>News & Video</h2>
+        <!-- News and video content here -->
+    </div>
+</div>
+
 {% endblock %}
